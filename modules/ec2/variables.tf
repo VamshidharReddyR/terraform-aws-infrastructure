@@ -27,3 +27,8 @@ variable "key_name" {
   description = "EC2 Key Pair Name"
   type        = string
 }
+
+variable "root_volume_size" {
+  description = "Root volume size in GB"
+  type        = number
+}
