@@ -18,6 +18,7 @@ module "ec2" {
 
   ami_id            = "ami-0c02fb55956c7d316"
   instance_type     = "t2.micro"
+  key_name         = "terraform-key"
   subnet_id         = module.network.public_subnet_id
   security_group_id = module.security_group.security_group_id
   environment       = var.environment
