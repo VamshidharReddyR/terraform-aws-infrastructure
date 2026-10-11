@@ -7,6 +7,11 @@ resource "aws_instance" "web" {
   vpc_security_group_ids      = [var.security_group_id]
   associate_public_ip_address = true
 
+  root_block_device {
+    volume_size = var.root_volume_size
+    volume_type = "gp3"
+  }
+
   tags = {
     Name        = "${var.environment}-ec2"
     Environment = var.environment
