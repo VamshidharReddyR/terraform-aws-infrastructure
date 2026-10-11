@@ -2,54 +2,86 @@
 
 This repository contains Terraform configurations for provisioning AWS infrastructure using a modular approach.
 
-The goal of this project is to organize infrastructure components into reusable modules while keeping the root configuration simple and easy to manage.
+The project is structured using reusable Terraform modules to separate networking, security groups, and compute resources.
 
-## Technologies
+## Overview
 
-- Terraform
-- AWS VPC
-- AWS EC2
-- AWS Security Groups
-- AWS Internet Gateway
-- AWS Route Tables
-- Git
-- GitHub
+The infrastructure is divided into individual modules to improve maintainability and reusability.
+
+Current modules include:
+
+- Network
+- Security Group
+- EC2
+
+## Architecture
+
+Terraform
+|
++-- Network Module
+|   |
+|   +-- VPC
+|   +-- Public Subnet
+|   +-- Internet Gateway
+|   +-- Route Table
+|
++-- Security Group Module
+|   |
+|   +-- SSH Access (22)
+|   +-- HTTP Access (80)
+|   +-- HTTPS Access (443)
+|
++-- EC2 Module
+    |
+    +-- EC2 Instance
+    +-- Key Pair Configuration
+    +-- Root Volume Configuration
 
 ## Repository Structure
 
 terraform-aws-infrastructure
 
-modules
-├── network
-├── security-group
-└── ec2
+modules/
+├── network/
+├── security-group/
+└── ec2/
 
 main.tf
 provider.tf
 variables.tf
-outputs.tf
 terraform.tfvars
+outputs.tf
 
-## Planned Infrastructure
+## Features
 
-- Custom VPC
-- Public Subnet
-- Internet Gateway
-- Route Table
-- Security Group
-- EC2 Instance
-
-## Terraform Concepts
-
-- Modules
-- Variables
-- Outputs
-- Resource Dependencies
+- Modular Terraform Design
+- AWS VPC Creation
+- Public Subnet Configuration
+- Internet Gateway Integration
+- Route Table Association
+- Security Group Management
+- EC2 Provisioning
+- Configurable Key Pair Support
+- Configurable Root Volume Size
 - Reusable Infrastructure Components
+- Variable Driven Configuration
+
+## Technologies Used
+
+- Terraform
+- AWS
+- Amazon VPC
+- Amazon EC2
+- AWS Security Groups
+- Git
+- GitHub
 
 ## Future Enhancements
 
-- Multiple Environments
-- Remote Backend
-- Terraform State Management
-- Additional AWS Services
+- Private Subnets
+- NAT Gateway
+- Application Load Balancer
+- Auto Scaling Group
+- Remote State Backend using S3 and DynamoDB
+- Multi Environment Deployments
+- Additional Terraform Modules
